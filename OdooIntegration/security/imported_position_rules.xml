@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="rule_imported_position_own" model="ir.rule">
+		<field name="name">Imported Positions: only own</field>
+		<field name="model_id" ref="model_imported_position"/>
+		<field name="domain_force">[('external_user_id', '=', user.external_user_id)]</field>
+		<field name="groups" eval="[(4, ref('base.group_user'))]"/>
+	</record>
+
+</odoo>

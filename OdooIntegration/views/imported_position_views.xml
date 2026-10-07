@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_imported_position_list" model="ir.ui.view">
+        <field name="name">imported.position.list</field>
+        <field name="model">imported.position</field>
+        <field name="arch" type="xml">
+            <list string="My Positions">
+                <field name="name"/>
+                <field name="external_id"/>
+                <field name="import_date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_imported_position_form" model="ir.ui.view">
+        <field name="name">imported.position.form</field>
+        <field name="model">imported.position</field>
+        <field name="arch" type="xml">
+            <form string="Position" create="false" edit="false">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="external_id"/>
+                        <field name="import_date"/>
+                        <field name="external_user_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Skills">
+                            <field name="skill_ids" readonly="1">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="skill_type"/>
+                                    <field name="value"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_imported_position" model="ir.actions.act_window">
+        <field name="name">My Positions</field>
+        <field name="res_model">imported.position</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No positions yet. Use "Import Positions" to fetch them.
+            </p>
+        </field>
+    </record>
+
+</odoo>

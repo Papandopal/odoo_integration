@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_imported_position_user,imported.position.user,model_imported_position,base.group_user,1,0,0,0
+access_imported_skill_user,imported.skill.user,model_imported_skill,base.group_user,1,0,0,0
+access_import_wizard_user,import.wizard.user,model_import_wizard,base.group_user,1,1,1,1
