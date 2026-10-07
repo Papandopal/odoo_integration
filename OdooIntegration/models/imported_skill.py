@@ -15,5 +15,5 @@ class ImportedSkill(models.Model):
     )
     name = fields.Char(string='Skill', required=True)
     skill_type = fields.Char(string='Type')
-    value = fields.Char(string='Value')
+    value = fields.Char(string='Average Value')
     raw_data = fields.Json(string='Raw Payload', readonly=True)
