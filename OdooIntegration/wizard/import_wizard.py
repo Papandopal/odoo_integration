@@ -33,7 +33,7 @@ class ApiSkill:
         if not skill_type:
             raise ValueError("Skill.Type is required")
 
-        raw_value = _get(data, "Value", "value")
+        raw_value = _get(data, "AverageValue", "averageValue")
         if raw_value is None:
             raw_value = ""
         elif not isinstance(raw_value, str):
@@ -134,7 +134,7 @@ class ImportWizard(models.TransientModel):
                 'position_id': position.id,
                 'name': skill.name,
                 'skill_type': skill.type,
-                'value': skill.value,
+                'value': skill.value,   
                 'raw_data': raw_skill if isinstance(raw_skill, dict) else {},
             })
 
