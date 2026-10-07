@@ -31,7 +31,7 @@
                                 <list>
                                     <field name="name"/>
                                     <field name="skill_type"/>
-                                    <field name="value"/>
+                                    <field name="value" string="Average Value"/>
                                 </list>
                             </field>
                         </page>
