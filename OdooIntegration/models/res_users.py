@@ -15,6 +15,10 @@ class ResUsers(models.Model):
 
         internal_group = self.env.ref('base.group_user', raise_if_not_found=False)
         portal_group = self.env.ref('base.group_portal', raise_if_not_found=False)
+        home_action = self.env.ref(
+            'OdooIntegration.action_imported_position',
+            raise_if_not_found=False
+        )
 
         if internal_group:
             for user in users:
@@ -22,11 +26,13 @@ class ResUsers(models.Model):
 
                 if portal_group and portal_group in user.group_ids:
                     commands.append((3, portal_group.id))
-
                 if internal_group not in user.group_ids:
                     commands.append((4, internal_group.id))
 
                 if commands:
                     user.sudo().write({'group_ids': commands})
+                    
+                if home_action and not user.action_id:
+                    user.sudo().write({'action_id': home_action.id})
 
         return users
